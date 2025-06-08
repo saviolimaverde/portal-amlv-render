@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Portal AMLV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">AMLV</div>
+                    <div class="logo-text">Portal do Cliente</div>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="/dashboard" class="nav-btn active">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                    <a href="/processes" class="nav-btn">
+                        <i class="fas fa-folder-open"></i> Processos
+                    </a>
+                    <a href="/documents" class="nav-btn">
+                        <i class="fas fa-file-alt"></i> Documentos
+                    </a>
+                    <a href="/appointments" class="nav-btn">
+                        <i class="fas fa-calendar-alt"></i> Agenda
+                    </a>
+                    <a href="/messages" class="nav-btn">
+                        <i class="fas fa-envelope"></i> Mensagens
+                    </a>
+                </nav>
+                
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">T</div>
+                    <span id="userEmail">Carregando...</span>
+                    <button class="logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="welcome-section">
+                <h1 class="page-title">Bem-vindo ao Portal do Cliente</h1>
+                <p class="page-subtitle">Gerencie seus processos e documentos de forma simples e segura</p>
+            </div>
+
+            <div class="stats-grid" id="statsGrid">
+                <!-- Stats serão carregados via JavaScript -->
+            </div>
+
+            <div class="quick-actions">
+                <div class="action-card">
+                    <div class="action-header">
+                        <div class="action-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <h3 class="action-title">Meus Processos</h3>
+                    </div>
+                    <p class="action-description">
+                        Acompanhe o andamento de todos os seus processos jurídicos em tempo real.
+                    </p>
+                    <a href="/processes" class="action-btn">Ver Processos</a>
+                </div>
+                
+                <div class="action-card">
+                    <div class="action-header">
+                        <div class="action-icon">
+                            <i class="fas fa-file-download"></i>
+                        </div>
+                        <h3 class="action-title">Documentos</h3>
+                    </div>
+                    <p class="action-description">
+                        Acesse e baixe todos os documentos relacionados aos seus casos.
+                    </p>
+                    <a href="/documents" class="action-btn">Ver Documentos</a>
+                </div>
+                
+                <div class="action-card">
+                    <div class="action-header">
+                        <div class="action-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="action-title">Agendamentos</h3>
+                    </div>
+                    <p class="action-description">
+                        Visualize seus próximos compromissos e agende novas reuniões.
+                    </p>
+                    <a href="/appointments" class="action-btn">Ver Agenda</a>
+                </div>
+                
+                <div class="action-card">
+                    <div class="action-header">
+                        <div class="action-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="action-title">Mensagens</h3>
+                    </div>
+                    <p class="action-description">
+                        Comunique-se diretamente com nossa equipe jurídica.
+                    </p>
+                    <a href="/messages" class="action-btn">Ver Mensagens</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Carregar dados do usuário
+        async function loadUserData() {
+            try {
+                const response = await fetch('/api/user');
+                if (response.ok) {
+                    const user = await response.json();
+                    
+                    // Atualizar informações do usuário
+                    document.getElementById('userEmail').textContent = user.email;
+                    document.getElementById('userAvatar').textContent = user.email.charAt(0).toUpperCase();
+                    
+                    // Carregar estatísticas
+                    loadStats(user);
+                } else {
+                    window.location.href = '/';
+                }
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                window.location.href = '/';
+            }
+        }
+        
+        function loadStats(user) {
+            const statsGrid = document.getElementById('statsGrid');
+            
+            const stats = [
+                {
+                    icon: 'fas fa-file-alt',
+                    number: user.processes?.length || 0,
+                    label: 'Processos Ativos'
+                },
+                {
+                    icon: 'fas fa-calendar-check',
+                    number: user.appointments?.length || 0,
+                    label: 'Próximos Compromissos'
+                },
+                {
+                    icon: 'fas fa-download',
+                    number: user.documents?.length || 0,
+                    label: 'Documentos Disponíveis'
+                },
+                {
+                    icon: 'fas fa-bell',
+                    number: user.messages?.filter(m => !m.read).length || 0,
+                    label: 'Notificações'
+                }
+            ];
+            
+            statsGrid.innerHTML = stats.map(stat => `
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="${stat.icon}"></i>
+                    </div>
+                    <div class="stat-number">${stat.number}</div>
+                    <div class="stat-label">${stat.label}</div>
+                </div>
+            `).join('');
+        }
+        
+        async function logout() {
+            try {
+                await fetch('/logout', { method: 'POST' });
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Erro ao fazer logout:', error);
+            }
+        }
+        
+        // Carregar dados ao inicializar
+        loadUserData();
+    </script>
+</body>
+</html>
+
