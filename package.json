@@ -1,24 +1,13 @@
+
 {
   "name": "portal-amlv-advocacia",
   "version": "1.0.0",
-  "description": "Portal do Cliente AMLV Advocacia",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "express-session": "^1.17.3",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.2",
-    "path": "^0.12.7"
-  },
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "keywords": ["advocacia", "portal", "cliente", "amlv"],
-  "author": "AMLV Advocacia",
-  "license": "MIT"
+    "express-session": "^1.17.3"
+  }
 }
-

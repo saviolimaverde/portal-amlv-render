@@ -1,0 +1,43 @@
+
+body {
+    background-color: #0d0d0d;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #d4af37;
+}
+h2 {
+    color: #d4af37;
+    text-align: center;
+}
+input[type=email], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+button {
+    width: 100%;
+    background-color: #d4af37;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+a {
+    color: #d4af37;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
