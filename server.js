@@ -3,24 +3,28 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// 🔁 Redireciona automaticamente do domínio padrão da Render para o domínio personalizado
+// ✅ Redireciona para domínio oficial SOMENTE na página principal
 app.use((req, res, next) => {
-  if (req.headers.host === 'portal-amlv-render.onrender.com') {
-    return res.redirect(301, 'https://portal.amlvadvocacia.com.br' + req.url);
+  if (req.headers.host === 'portal-amlv-render.onrender.com' && req.url === '/') {
+    return res.redirect(301, 'https://portal.amlvadvocacia.com.br');
   }
   next();
 });
 
+// ✅ Servir arquivos estáticos da pasta public (CSS, imagens, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
+// ✅ Rota da página de login
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
+// ✅ Rota da dashboard
 app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
+// ✅ Iniciar o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
