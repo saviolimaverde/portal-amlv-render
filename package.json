@@ -1,0 +1,12 @@
+{
+  "name": "portal-amlv-render",
+  "version": "1.0.0",
+  "description": "Portal do Cliente AMLV",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
