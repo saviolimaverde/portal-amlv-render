@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0f111a;
+  color: white;
+}
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(145deg, #0f111a, #1b1d2a);
+}
+.login-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  width: 320px;
+  color: #fff;
+  text-align: center;
+}
+.logo-login {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+.login-form input {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 8px;
+  background: #1f222f;
+  color: white;
+}
+.login-form button {
+  width: 100%;
+  padding: 0.7rem;
+  background: #ffd700;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.credentials {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #ffd700;
+}
+.forgot-password {
+  display: block;
+  margin-top: 0.5rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+.dashboard-body {
+  display: flex;
+  height: 100vh;
+}
+.sidebar {
+  background-color: #14161e;
+  width: 220px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo-sidebar {
+  max-width: 100px;
+  margin-bottom: 2rem;
+}
+.menu {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+.menu li {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-weight: 500;
+  cursor: pointer;
+}
+.menu li.active,
+.menu li a:hover {
+  background-color: #1f222f;
+  border-radius: 8px;
+}
+.menu li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+}
