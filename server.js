@@ -33,3 +33,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/login.html');
+});
+
+app.get('/dashboard', (req, res) => {
+  if (!req.session.user) return res.redirect('/');
+  res.sendFile(__dirname + '/public/dashboard.html');
+});
+

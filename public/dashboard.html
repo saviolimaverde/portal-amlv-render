@@ -2,26 +2,31 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard AMLV</title>
-  <link rel="stylesheet" href="/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Portal AMLV - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="dashboard-body">
-  <div class="sidebar">
-    <img src="/logo-amlv.png" alt="Logo AMLV" class="logo-sidebar" />
-    <ul class="menu">
-      <li class="active">Dashboard</li>
-      <li><a href="/processos">Processos</a></li>
-      <li><a href="/documentos">Documentos</a></li>
-      <li><a href="/agendamentos">Agendamentos</a></li>
-      <li><a href="/mensagens">Mensagens</a></li>
-      <li><a href="/logout">Sair</a></li>
-    </ul>
-  </div>
-  <main class="main-content">
-    <h1>Bem-vindo ao Portal AMLV</h1>
-    <p>Você está autenticado como <strong>teste@amlvadvocacia.com.br</strong></p>
+<body class="dark-theme">
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo AMLV" class="logo">
+      <h1 class="brand">Araújo, Mesquita & Lima Verde</h1>
+      <p class="subtitle">Escritório de Advocacia</p>
+    </div>
+    <nav class="menu">
+      <a href="/dashboard.html" class="active">Dashboard</a>
+      <a href="/processos.html">Processos</a>
+      <a href="/documentos.html">Documentos</a>
+      <a href="/agendamentos.html">Agendamentos</a>
+      <a href="/mensagens.html">Mensagens</a>
+      <a href="/logout" class="sair">Sair</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="welcome-card">
+      <h2>Bem-vindo ao Portal AMLV</h2>
+      <p>Você está autenticado como <strong>{{ email ou nome do usuário }}</strong>.</p>
+    </section>
   </main>
 </body>
 </html>
