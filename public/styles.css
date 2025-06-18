@@ -1,43 +1,56 @@
 
-body {
-    background-color: #0d0d0d;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    margin: 0;
-    padding: 0;
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
-.container {
-    max-width: 400px;
-    margin: 100px auto;
-    background-color: #1a1a1a;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #d4af37;
+.login-body {
+  background-color: #0f111a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-h2 {
-    color: #d4af37;
-    text-align: center;
+.login-container {
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  text-align: center;
 }
-input[type=email], input[type=password] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
+.logo-login {
+  width: 180px;
+  margin-bottom: 1rem;
 }
-button {
-    width: 100%;
-    background-color: #d4af37;
-    color: black;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
+.login-title {
+  color: white;
 }
-a {
-    color: #d4af37;
-    display: block;
-    text-align: center;
-    margin-top: 10px;
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+.sidebar {
+  background-color: #0f111a;
+  color: white;
+  width: 260px;
+  height: 100vh;
+  padding: 1rem;
+  float: left;
+}
+.logo {
+  width: 220px;
+}
+.menu a {
+  display: block;
+  margin: 1rem 0;
+  color: white;
+  text-decoration: none;
+}
+.content {
+  margin-left: 260px;
+  padding: 2rem;
+  background: #13151f;
+  height: 100vh;
+  color: white;
 }

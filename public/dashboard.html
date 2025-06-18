@@ -3,14 +3,30 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard - AMLV</title>
+  <title>Portal AMLV - Dashboard</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="container">
-    <h2>Bem-vindo ao Portal AMLV</h2>
-    <p style="text-align:center;">Você está autenticado como <strong>teste@amlvadvocacia.com.br</strong></p>
-    <a href="/logout">Sair</a>
-  </div>
+<body class="dark-theme">
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="logo-amlv.png" alt="Logo AMLV" class="logo">
+      <h1 class="brand">Araújo, Mesquita & Lima Verde</h1>
+      <p class="subtitle">Escritório de Advocacia</p>
+    </div>
+    <nav class="menu">
+      <a href="/dashboard.html" class="active">Dashboard</a>
+      <a href="/processos.html">Processos</a>
+      <a href="/documentos.html">Documentos</a>
+      <a href="/agendamentos.html">Agendamentos</a>
+      <a href="/mensagens.html">Mensagens</a>
+      <a href="/logout" class="sair">Sair</a>
+    </nav>
+  </aside>
+  <main class="content">
+    <section class="welcome-card">
+      <h2>Bem-vindo ao Portal AMLV</h2>
+      <p>Você está autenticado como <strong>teste@amlvadvocacia.com.br</strong>.</p>
+    </section>
+  </main>
 </body>
 </html>

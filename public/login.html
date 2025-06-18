@@ -2,20 +2,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Portal do Cliente - AMLV</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="container">
-    <h2>Portal do Cliente</h2>
-    <form method="POST" action="/login">
-      <input type="email" name="email" placeholder="E-mail" required />
-      <input type="password" name="senha" placeholder="Senha" required />
+<body class="login-body">
+  <div class="login-container">
+    <img src="logo-amlv.png" class="logo-login">
+    <h2 class="login-title">Portal do Cliente</h2>
+    <form action="/dashboard">
+      <input type="email" placeholder="E-mail" required>
+      <input type="password" placeholder="Senha" required>
       <button type="submit">Entrar</button>
     </form>
-    <a href="#">Esqueceu sua senha?</a>
-    <p style="text-align:center;margin-top:20px;"><strong>Credenciais de teste:</strong><br>Email: teste@amlvadvocacia.com.br<br>Senha: 123456</p>
+    <p class="credenciais">Email: teste@amlvadvocacia.com.br<br>Senha: 123456</p>
   </div>
 </body>
 </html>
